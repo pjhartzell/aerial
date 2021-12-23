@@ -1,6 +1,5 @@
 from pystac import Provider, ProviderRole
 
-
 PROVIDERS = [
     Provider(name='Atlantic',
                   roles=[ProviderRole.PRODUCER],

@@ -1,14 +1,13 @@
-import re
 import math
-from pathlib import Path
+import re
 from datetime import datetime, timezone
-from typing import Dict, List, Any
+from pathlib import Path
+from typing import Any, Dict, List
 
 import rasterio
-from rasterio.warp import transform_bounds
 from rasterio.crs import CRS
-from shapely.geometry import mapping, box
-
+from rasterio.warp import transform_bounds
+from shapely.geometry import box, mapping
 
 JsonDict = Dict[str, Any]
 

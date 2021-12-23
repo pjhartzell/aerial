@@ -2,11 +2,11 @@ from datetime import datetime, timezone
 
 from pystac import (Asset, CatalogType, Collection, Extent, Item, MediaType,
                     SpatialExtent, TemporalExtent)
+from pystac.extensions.eo import Band, EOExtension
 from pystac.extensions.projection import ProjectionExtension
-from pystac.extensions.eo import EOExtension, Band
 
-from stactools.aerial.image_metadata import ImageMetadata
 from stactools.aerial.constants import PROVIDERS
+from stactools.aerial.image_metadata import ImageMetadata
 
 
 def create_collection() -> Collection:
