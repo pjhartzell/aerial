@@ -1,6 +1,8 @@
-name: stactools-aerial
+name: stactools-aerial-test
 channels:
   - conda-forge
   - defaults
 dependencies:
   - gdal
+  - rasterio
+  - pyproj

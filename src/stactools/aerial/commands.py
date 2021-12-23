@@ -1,17 +1,13 @@
-import logging
-
 import click
 
 from stactools.aerial import stac
-
-logger = logging.getLogger(__name__)
 
 
 def create_aerial_command(cli):
     """Creates the stactools-aerial command line utility."""
     @cli.group(
         "aerial",
-        short_help=("Commands for working with stactools-aerial"),
+        short_help=("Commands for working with aerial imagery"),
     )
     def aerial():
         pass

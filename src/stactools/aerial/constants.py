@@ -1,11 +1,11 @@
-import pystac
+from pystac import Provider, ProviderRole
 
 
 PROVIDERS = [
-    pystac.Provider(name='Atlantic',
-                    roles=['producer'],
-                    url='https://atlantic.tech/'),
-    pystac.Provider(name='Preston\'s MacBook',
-                    roles=['host'],
-                    url='https://mysite.com/')
+    Provider(name='Atlantic',
+                  roles=[ProviderRole.PRODUCER],
+                  url='https://atlantic.tech/'),
+    Provider(name='Preston\'s MacBook',
+                  roles=[ProviderRole.HOST],
+                  url='https://mysite.com/')
 ]

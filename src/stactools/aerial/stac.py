@@ -1,4 +1,3 @@
-import logging
 from datetime import datetime, timezone
 
 from pystac import (Asset, CatalogType, Collection, Extent, Item, MediaType,
@@ -6,11 +5,8 @@ from pystac import (Asset, CatalogType, Collection, Extent, Item, MediaType,
 from pystac.extensions.projection import ProjectionExtension
 from pystac.extensions.eo import EOExtension, Band
 
-from image_metadata import ImageMetadata
-from constants import PROVIDERS
-
-
-logger = logging.getLogger(__name__)
+from stactools.aerial.image_metadata import ImageMetadata
+from stactools.aerial.constants import PROVIDERS
 
 
 def create_collection() -> Collection:
