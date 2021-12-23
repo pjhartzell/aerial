@@ -2,21 +2,21 @@ import logging
 
 import click
 
-from stactools.ephemeral import stac
+from stactools.aerial import stac
 
 logger = logging.getLogger(__name__)
 
 
-def create_ephemeralcmd_command(cli):
-    """Creates the stactools-ephemeral command line utility."""
+def create_aerial_command(cli):
+    """Creates the stactools-aerial command line utility."""
     @cli.group(
-        "ephemeralcmd",
-        short_help=("Commands for working with stactools-ephemeral"),
+        "aerial",
+        short_help=("Commands for working with stactools-aerial"),
     )
-    def ephemeralcmd():
+    def aerial():
         pass
 
-    @ephemeralcmd.command(
+    @aerial.command(
         "create-collection",
         short_help="Creates a STAC collection",
     )
@@ -35,7 +35,7 @@ def create_ephemeralcmd_command(cli):
 
         return None
 
-    @ephemeralcmd.command("create-item", short_help="Create a STAC item")
+    @aerial.command("create-item", short_help="Create a STAC item")
     @click.argument("source")
     @click.argument("destination")
     def create_item_command(source: str, destination: str):
@@ -51,4 +51,4 @@ def create_ephemeralcmd_command(cli):
 
         return None
 
-    return ephemeralcmd
+    return aerial

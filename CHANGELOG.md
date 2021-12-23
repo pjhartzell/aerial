@@ -21,3 +21,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 - Nothing.
+
+## [v0.1.0] - 2021-12-23
+
+Initial release.
+
+### Added
+
+- Everything.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+## Fixed
+
+- Nothing.
