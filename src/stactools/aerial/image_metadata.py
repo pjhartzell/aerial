@@ -13,7 +13,6 @@ JsonDict = Dict[str, Any]
 
 
 class ImageMetadata:
-
     def __init__(self, href):
         self.href = href
         self.path = Path(href)

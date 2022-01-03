@@ -5,7 +5,6 @@ from stactools.aerial import stac
 
 def create_aerial_command(cli):
     """Creates the stactools-aerial command line utility."""
-
     @cli.group(
         "aerial",
         short_help=("Commands for working with aerial imagery"),
