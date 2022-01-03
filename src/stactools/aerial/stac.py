@@ -58,13 +58,11 @@ def create_item(asset_href: str) -> Item:
     image_metadata = ImageMetadata(asset_href)
 
     # item instance
-    item = Item(
-        id=image_metadata.id,
-        geometry=image_metadata.footprint_wgs84,
-        bbox=image_metadata.bbox_wgs84,
-        datetime=image_metadata.time_utc,
-        properties={}
-    )
+    item = Item(id=image_metadata.id,
+                geometry=image_metadata.footprint_wgs84,
+                bbox=image_metadata.bbox_wgs84,
+                datetime=image_metadata.time_utc,
+                properties={})
 
     # --Common Metadata--
     item.common_metadata.gsd = image_metadata.gsd
@@ -89,16 +87,16 @@ def create_item(asset_href: str) -> Item:
 
 
 def create_image_asset(href: str, item: Item) -> Asset:
-    asset = Asset(href=href,
-                  media_type=MediaType.GEOTIFF,
-                  roles=['data'])
+    asset = Asset(href=href, media_type=MediaType.GEOTIFF, roles=['data'])
     item.add_asset(key='image', asset=asset)
 
     # --Extensions--
     eo = EOExtension.ext(asset, add_if_missing=True)
-    rgb_bands = [Band.create(name='1', common_name='red'),
-                 Band.create(name='2', common_name='green'),
-                 Band.create(name='3', common_name='blue')]
+    rgb_bands = [
+        Band.create(name='1', common_name='red'),
+        Band.create(name='2', common_name='green'),
+        Band.create(name='3', common_name='blue')
+    ]
     eo.bands = rgb_bands
 
     return asset

@@ -13,6 +13,7 @@ JsonDict = Dict[str, Any]
 
 
 class ImageMetadata:
+
     def __init__(self, href):
         self.href = href
         self.path = Path(href)
@@ -62,7 +63,7 @@ class ImageMetadata:
         # See also rasterio.warp.transform_geom and rasterio.warp.transform
         dst_crs = CRS.from_epsg(4326)
         bbox_wgs84 = list(transform_bounds(self.crs, dst_crs, *self.bbox))
-        return(bbox_wgs84)
+        return (bbox_wgs84)
 
     @property
     def footprint_wgs84(self) -> JsonDict:
