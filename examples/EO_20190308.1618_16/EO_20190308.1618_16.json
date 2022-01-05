@@ -1,0 +1,153 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "EO_20190308.1618_16",
+  "properties": {
+    "gsd": 0.07500000000000902,
+    "providers": [
+      {
+        "name": "Atlantic",
+        "roles": [
+          "producer"
+        ],
+        "url": "https://atlantic.tech/"
+      },
+      {
+        "name": "Preston's MacBook",
+        "roles": [
+          "host"
+        ],
+        "url": "https://mysite.com/"
+      }
+    ],
+    "license": "proprietary",
+    "proj:epsg": 32616,
+    "proj:transform": [
+      0.07500000000000902,
+      0.0,
+      627237.825,
+      0.0,
+      -0.07500000000000902,
+      4323249.899999999
+    ],
+    "proj:shape": [
+      9996,
+      10325
+    ],
+    "proj:bbox": [
+      627237.825,
+      4322500.199999999,
+      628012.2000000001,
+      4323249.899999999
+    ],
+    "proj:geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            628012.2000000001,
+            4322500.199999999
+          ],
+          [
+            628012.2000000001,
+            4323249.899999999
+          ],
+          [
+            627237.825,
+            4323249.899999999
+          ],
+          [
+            627237.825,
+            4322500.199999999
+          ],
+          [
+            628012.2000000001,
+            4322500.199999999
+          ]
+        ]
+      ]
+    },
+    "datetime": "2019-03-08T00:00:00Z"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -85.52067272079618,
+          39.042196773380894
+        ],
+        [
+          -85.52067272079618,
+          39.049063426006256
+        ],
+        [
+          -85.52975878413126,
+          39.049063426006256
+        ],
+        [
+          -85.52975878413126,
+          39.042196773380894
+        ],
+        [
+          -85.52067272079618,
+          39.042196773380894
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "aerial images"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "aerial images"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "aerial images"
+    }
+  ],
+  "assets": {
+    "image": {
+      "href": "/Users/pjh/data/aerial/EO_20190308.1618_16.tif",
+      "type": "image/tiff; application=geotiff",
+      "eo:bands": [
+        {
+          "name": "1",
+          "common_name": "red"
+        },
+        {
+          "name": "2",
+          "common_name": "green"
+        },
+        {
+          "name": "3",
+          "common_name": "blue"
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    }
+  },
+  "bbox": [
+    -85.52975878413126,
+    39.042196773380894,
+    -85.52067272079618,
+    39.049063426006256
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/eo/v1.0.0/schema.json"
+  ],
+  "collection": "test-aerial-imagery"
+}

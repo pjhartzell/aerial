@@ -1,18 +1,71 @@
-# stactools-template
+# stactools-aerial
 
-This is a template repo used for creating new packages for `stactools`.
+- Name: aerial
+- Package: `stactools.aerial`
+- Owner: pjhartzell
+- Dataset homepage: https://github.com/pjhartzell/aerial
+- STAC extensions used:
+  - [proj](https://github.com/stac-extensions/projection/)
+  - [eo](https://github.com/stac-extensions/eo)
 
-## How to use
+Toy stactools package to create STAC items and collections for select airborne imagery.
 
-1. Clone this template repository as your package name, e.g. `landsat`.
-   This name should be short, memorable, and a valid Python package name (i.e. it shouldn't start with a number, etc).
-   It can, however, include a hyphen, in which case the name for Python imports will be the underscored version, e.g. `landsat-8` goes to `stactools.landsat_8`.
-   Your name will be used on PyPI to publish the package in the stactools namespace, e.g. `stactools-landsat`.
-2. Change into the top-level directory of your package and run `scripts/rename`.
-   This will update _most_ of the files in the repository with your new package name.
-3. Update `setup.cfg` with your package description and such.
-4. Update the LICENSE with your company's information (or whomever holds the copyright).
-5. Run `sphinx-quickstart` in the `docs` directory to create the documentation template.
-6. Update `docs/installation_and_basic_usage.ipynb` to provide an interactive notebook to help users get started. Include the following badge at the top of the README to launch the notebook: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/stactools-packages/template/main?filepath=docs/installation_and_basic_usage.ipynb). Be sure to modify the badge href to match your package repo.
-7. Add example Items (and Collections and Catalogs, if included) to a `examples/` directory.
-8. Delete this file, and rename `README-template.md` to `README.md`. Update your new README to provide information about how to use your package.
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pjhartzell/aerial/main?filepath=docs/installation_and_basic_usage.ipynb)
+
+## Examples
+
+### STAC objects
+
+- [Collection](examples/collection.json)
+- [Item](examples/EO_20190308.1618_11/EO_20190308.1618_11.json)
+
+### Command-line usage
+
+Create an empty collection.
+
+```bash
+$ stac aerial create-collection collection.json
+```
+
+Create a single item.
+
+```bash
+$ stac aerial create-item aerial_image.tif item.json
+```
+
+Use `stac aerial --help` to see all subcommands and options.
+
+### Python usage
+
+Use within a Python script to create an empty collection, add items to the collection, update and save the (now no longer empty) collection.
+
+```python
+from pathlib import Path
+
+from pystac.catalog import CatalogType
+from stactools.aerial import create_collection, create_item
+
+# Path to aerial TIF files
+DATA_PATH = '/Users/pjh/data/aerial/'
+
+# Create an empty collection
+collection = create_collection()
+
+# Add items to the collection
+files = list(Path(DATA_PATH).glob('*.tif'))
+for file in files:
+    print(f'creating STAC item for {file.name}')
+    item = create_item(str(file))
+    collection.add_item(item)
+
+# Update the collection extent based on the added items
+collection.update_extent_from_items()
+
+# Normalize hrefs
+stac_path = str(Path(DATA_PATH) / 'STAC')
+collection.normalize_hrefs(stac_path)
+
+# Save the collection
+collection.save(catalog_type=CatalogType.SELF_CONTAINED)
+print(f'STAC written to {stac_path}')
+```

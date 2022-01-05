@@ -37,3 +37,6 @@ indent_size = unset
 
 [*.yml]
 indent_size = 2
+
+[examples/**/*.json]
+insert_final_newline = unset

@@ -17,9 +17,9 @@ class StacTest(unittest.TestCase):
         collection.validate()
 
     def test_create_item(self):
-        path = test_data.get_external_data("UFO_USACE_EO_20190308.1618_11.tif")
+        path = test_data.get_external_data("EO_20190308.1618_11.tif")
         item = stac.create_item(path)
 
-        self.assertEqual(item.id, "UFO_USACE_EO_20190308.1618_11")
+        self.assertEqual(item.id, "EO_20190308.1618_11")
 
         item.validate()

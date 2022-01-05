@@ -27,8 +27,7 @@ class CommandsTest(CliTestCase):
 
     def test_create_item(self):
         with TemporaryDirectory() as tmp_dir:
-            infile = test_data.get_external_data(
-                "UFO_USACE_EO_20190308.1618_11.tif")
+            infile = test_data.get_external_data("EO_20190308.1618_11.tif")
             outfile = os.path.join(tmp_dir, "item.json")
             args = ["aerial", "create-item", infile, outfile]
             result = self.run_command(args)
